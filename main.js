@@ -1,5 +1,5 @@
-//LifxOSC
-//by Joe Shea & Marcus Pasell
+//NodeLifxOSC
+//by Joe Shea
 
 //Load lifx as library
 const Lifx = require('lifxjs');
@@ -9,7 +9,7 @@ const { Client, Server } = require('node-osc');
 //Create new lifx instance
 const lifx = new Lifx();
 //Authenticate Lifx Token
-lifx.init({ appToken: 'ce8f380d080e77059fac26c5b8a5c5dd7037944f18e3d0477ee209d7bf13105d' });
+lifx.init({ appToken: 'ENTER TOKEN HERE' });
 
 //OSC Server (IN) Config
 const oscServerIp = "127.0.0.1";
@@ -21,8 +21,8 @@ const oscPortOut = 53000;
 const client = new Client(oscClientIp, oscPortOut);
 var server = new Server(oscPortIn, oscServerIp);
 
-let light1name = 'Wall Light'
-let light2name = 'Bed Light'
+let light1name = 'Wall Light'//Example
+let light2name = ''
 let light3name = ''
 let light4name = ''
 let light5name = ''
@@ -455,11 +455,3 @@ else if (msg[0] === "/lightsall"){
       }
 }
 })
-
-function resetRequestInterval(intervalMs) {
-  clearInterval(myInterval);
-  myInterval = setInterval(processLastRequest, intervalMs);
-}
-
-let myInterval = setInterval(processLastRequest, 1000);
-// setTimeout(() => { resetRequestInterval(10000); }, 10000);

@@ -1,0 +1,17 @@
+{
+  "name": "LifxOSC",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "lifxjs": "^1.0.1",
+    "osc-min": "^1.1.2"
+  }
+}

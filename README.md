@@ -4,14 +4,13 @@
 ### Requires:
 
 ### [Node.js](https://nodejs.org/), [lifxjs](https://www.npmjs.com/package/lifxjs), [osc-min](https://www.npmjs.com/package/osc-min), [OSC Software](https://www.google.com/search?q=osc+compatible+software&rlz=1C5CHFA_enUS851US851&oq=osc+compatible+software&aqs=chrome..69i57.5504j0j4&sourceid=chrome&ie=UTF-8), and a [LIFX Color Lightbulb](https://www.lifx.com/collections/lamps-and-pendants/products/lifx-color-a19)
-
 #
-Example Video using Qlab to OBS and also OBS to Qlab via OSC:
+### Example Video using Art-Net from Qlab to Node.js relaying commands to LIFX API:
 
 
 <a href="https://youtu.be/LuCbWI5LW_o
 " target="_blank"><img src="http://img.youtube.com/vi/LuCbWI5LW_o/0.jpg" 
-alt="NodeLifxArt-Net DEMO" width="300" height="180" border="10" /></a>
+alt="NodeLifxOSC DEMO" width="300" height="180" border="10" /></a>
 #
 ## LIFX Setup:
 - Add all LIFX Lightbulbs to 1 Account

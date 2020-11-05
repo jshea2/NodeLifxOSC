@@ -6,6 +6,13 @@
 ### [Node.js](https://nodejs.org/), [lifxjs](https://www.npmjs.com/package/lifxjs), [osc-min](https://www.npmjs.com/package/osc-min), [OSC Software](https://www.google.com/search?q=osc+compatible+software&rlz=1C5CHFA_enUS851US851&oq=osc+compatible+software&aqs=chrome..69i57.5504j0j4&sourceid=chrome&ie=UTF-8), and a [LIFX Color Lightbulb](https://www.lifx.com/collections/lamps-and-pendants/products/lifx-color-a19)
 
 #
+Example Video using Qlab to OBS and also OBS to Qlab via OSC:
+
+
+<a href="https://youtu.be/LuCbWI5LW_o
+" target="_blank"><img src="http://img.youtube.com/vi/LuCbWI5LW_o/0.jpg" 
+alt="NodeLifxArt-Net DEMO" width="300" height="180" border="10" /></a>
+#
 ## LIFX Setup:
 - Add all LIFX Lightbulbs to 1 Account
 - This also works in Multiple Locations on Different WiFi Networks
@@ -27,6 +34,7 @@
 | /light6    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 6                                                           |
 | /light7    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 7                                                           |
 | /light8    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 8                                                           |
+| /scene     | [LIFX Scene Name]                                                                       |                            |                           |                                                                                    |
 #
 ## Example OSC Commands:
 `/lightsall purple` -- This command will turn all lightbulbs Purple in a group (whatever group light 1 is in) 
@@ -36,6 +44,10 @@
 `/light4 255 0 0`  -- This command will only turn lightbulb 4 to Red (255 Red, 0 Green, 0 Blue)
 
 `/light8 orange`  -- This command will only turn lightbulb 8 to Orange
+
+`/scene Spooky`  -- This command will activate scene "Spooky".
+
+`/scene Long Scene Title`  -- This command will activate scene "Long Scene Title" (This will still work if there are spaces. This basically makes a space for each argument then joins them together)
 #
 ## Node Installation and Setup:
 - Download or Clone this repository
@@ -95,12 +107,6 @@
   ```
   ```javascript
     // fixture2 = bulb2;
-  ```
-  ```javascript
-  // //Fixture 2
-  // lifx.color.light(fixture2.id, {
-  //   rgb: `${chan4},${chan5},${chan6}`
-  // });
   ```
 -***This Is Currently Only Setup for **8** Lightbulbs***-
 #

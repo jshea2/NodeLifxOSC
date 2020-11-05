@@ -91,16 +91,24 @@ function white(fix){
 }
 
 server.on('message', async (msg) => {
-  
+  console.log("OSC IN: " + msg.toString())
   //Arguments to RGB
   var arg1 = msg[1]
   var arg2 = msg[2]
   var arg3 = msg[3]
 
   if (!fixture1) {
-    //Get All Lights
+    //Get and Log All Lights
     const lights = await lifx.get.all();
+    console.log("\b")
+    console.log("Available LIFX Lights:")
     lights.forEach(i => console.log(i.label))
+    // Get and Log All Scenes
+    const scenes = await lifx.get.scenes();
+    console.log("\b")
+    console.log("Available Scenes:")
+    scenes.forEach(i => console.log(i.name))
+    console.log("\b")
 
     //Find the Lights (UN-COMMENT WHEN YOU ADD MORE LIGHTS)
     //Fixture 1
@@ -108,10 +116,10 @@ server.on('message', async (msg) => {
       return light.label === light1name;
     });
 
-    //Fixture 2
-    const bulb2 = await lights.find(function (light) {
-      return light.label === light2name;
-    });
+    // //Fixture 2
+    // const bulb2 = await lights.find(function (light) {
+    //   return light.label === light2name;
+    // });
 
     // //Fixture 3
     // const bulb3 = await lights.find(function (light) {
@@ -144,7 +152,7 @@ server.on('message', async (msg) => {
     // });
 
     fixture1 = bulb1;
-    fixture2 = bulb2;
+    // fixture2 = bulb2;
     // fixture3 = bulb3;
     // fixture4 = bulb4;
     // fixture5 = bulb5;
@@ -453,5 +461,20 @@ else if (msg[0] === "/lightsall"){
         rgb: `255,255,255`
         });
       }
-}
+} else if (msg[0] === '/scene'){
+
+  msg.shift();                                       
+  oscMultiArg = msg.join(' ')  
+  
+  // get all scenes for the given access token
+  const scenes = await lifx.get.scenes();
+ 
+  // find the scene you are searching for
+  const currentScene = scenes.find(function (scene) {
+    return scene.name === oscMultiArg.toString();
+  });
+ 
+  // activate the scene
+  lifx.scene.activate(currentScene.uuid);
+    }
 })

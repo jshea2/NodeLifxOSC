@@ -12,6 +12,9 @@
 " target="_blank"><img src="http://img.youtube.com/vi/LuCbWI5LW_o/0.jpg" 
 alt="NodeLifxOSC DEMO" width="300" height="180" border="10" /></a>
 #
+### NEW Features in version 1.1.0
+- Added OSC command to control Kelvin Temperature
+#
 ## LIFX Setup:
 - Add all LIFX Lightbulbs to 1 Account
 - This also works in Multiple Locations on Different WiFi Networks
@@ -22,7 +25,7 @@ alt="NodeLifxOSC DEMO" width="300" height="180" border="10" /></a>
      *'main.js' is defaulted to:* ***IP: 127.0.0.1, Port: 3333***
 #
 ## OSC Commands:
-| String:    | Argument 1:<br>String or Red Value                                                      | Argument 2:<br>Green Value | Argument 3:<br>Blue Value | Description:                                                                       |
+| String:    | Argument 1:<br>String, Kelvin, or Red Value                                                      | Argument 2:<br>Green Value | Argument 3:<br>Blue Value | Description:                                                                       |
 |------------|-----------------------------------------------------------------------------------------|----------------------------|---------------------------|------------------------------------------------------------------------------------|
 | /lightsall | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts all lights in a group <br>(targets all lights in the group of light1) |
 | /light1    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 1                                                           |
@@ -33,6 +36,7 @@ alt="NodeLifxOSC DEMO" width="300" height="180" border="10" /></a>
 | /light6    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 6                                                           |
 | /light7    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 7                                                           |
 | /light8    | red, green, blue,<br>cyan, magenta, yellow,<br>orange, pink, purple,<br>white, or 0-255 | 0-255                      | 0-255                     | This adjusts lightbulb 8                                                           |
+| /light[x]/kelvin    | 1500-9000                                                                      |                            |                           | This adjusts selected lighbulb to certain kelvin temperature (works with /lightsall)                                                                            |
 | /scene     | [LIFX Scene Name]                                                                       |                            |                           |                                                                                    |
 #
 ## Example OSC Commands:
@@ -43,6 +47,10 @@ alt="NodeLifxOSC DEMO" width="300" height="180" border="10" /></a>
 `/light4 255 0 0`  -- This command will only turn lightbulb 4 to Red (255 Red, 0 Green, 0 Blue)
 
 `/light8 orange`  -- This command will only turn lightbulb 8 to Orange
+
+`/light1/kelvin 1500`  -- This command will only turn lightbulb 1 to 1500 Kelvin Temperature (Candlelight). 
+
+Kelvin temperature range on this LIFX bulb is: **1500K-9000K**
 
 `/scene Spooky`  -- This command will activate scene "Spooky".
 

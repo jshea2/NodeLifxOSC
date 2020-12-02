@@ -162,8 +162,13 @@ server.on('message', async (msg) => {
   }
   
   
-    if (msg[0] === "/light1"){
-      if(Number.isInteger(msg[1])){
+    if (msg[0].includes("/light1")){
+      if(msg[0].includes("/kelvin")){
+        //Fixture 1
+        lifx.color.light(fixture1.id, {
+          kelvin: `${arg1}`
+        }); 
+      } else if(Number.isInteger(msg[2])){
         //Fixture 1
          lifx.color.light(fixture1.id, {
           rgb: `${arg1},${arg2},${arg3}`
@@ -191,12 +196,17 @@ server.on('message', async (msg) => {
     }
   } 
     
-  else if (msg[0] === "/light2"){
-    if(Number.isInteger(msg[1])){
+  else if (msg[0].includes("/light2")){
+    if(msg[0].includes("/kelvin")){
+      //Fixture 2
+      lifx.color.light(fixture2.id, {
+        kelvin: `${arg1}`
+      }); 
+    } else if(Number.isInteger(msg[2])){
       //Fixture 2
        lifx.color.light(fixture2.id, {
         rgb: `${arg1},${arg2},${arg3}`
-      });  
+      });   
   } else if(msg[1] === 'red'){
     red(fixture2);
   } else if(msg[1] === 'green'){
@@ -220,12 +230,17 @@ server.on('message', async (msg) => {
   }
 } 
   
-else if (msg[0] === "/light3"){
-  if(Number.isInteger(msg[1])){
+else if (msg[0].includes("/light3")){
+  if(msg[0].includes("/kelvin")){
+    //Fixture 3
+    lifx.color.light(fixture3.id, {
+      kelvin: `${arg1}`
+    }); 
+  } else if(Number.isInteger(msg[2])){
     //Fixture 3
      lifx.color.light(fixture3.id, {
       rgb: `${arg1},${arg2},${arg3}`
-    });  
+    }); 
   } else if(msg[1] === 'red'){
     red(fixture3);
   } else if(msg[1] === 'green'){
@@ -249,8 +264,13 @@ else if (msg[0] === "/light3"){
   }
 }  
 
-else if (msg[0] === "/light4"){
-  if(Number.isInteger(msg[1])){
+else if (msg[0].includes("/light4")){
+  if(msg[0].includes("/kelvin")){
+    //Fixture 4
+    lifx.color.light(fixture4.id, {
+      kelvin: `${arg1}`
+    }); 
+  } else if(Number.isInteger(msg[2])){
     //Fixture 4
      lifx.color.light(fixture4.id, {
       rgb: `${arg1},${arg2},${arg3}`
@@ -278,8 +298,13 @@ else if (msg[0] === "/light4"){
   }
 } 
 
-else if (msg[0] === "/light5"){
-  if(Number.isInteger(msg[1])){
+else if (msg[0].includes("/light5")){
+  if(msg[0].includes("/kelvin")){
+    //Fixture 5
+    lifx.color.light(fixture5.id, {
+      kelvin: `${arg1}`
+    }); 
+  } else if(Number.isInteger(msg[2])){
     //Fixture 5
      lifx.color.light(fixture5.id, {
       rgb: `${arg1},${arg2},${arg3}`
@@ -307,8 +332,13 @@ else if (msg[0] === "/light5"){
   }
 } 
 
-else if (msg[0] === "/light6"){
-  if(Number.isInteger(msg[1])){
+else if (msg[0].includes("/light6")){
+  if(msg[0].includes("/kelvin")){
+    //Fixture 6
+    lifx.color.light(fixture6.id, {
+      kelvin: `${arg1}`
+    }); 
+  } else if(Number.isInteger(msg[2])){
     //Fixture 6
      lifx.color.light(fixture6.id, {
       rgb: `${arg1},${arg2},${arg3}`
@@ -336,12 +366,17 @@ else if (msg[0] === "/light6"){
   }
 } 
 
-else if (msg[0] === "/light7"){
-  if(Number.isInteger(msg[1])){
+else if (msg[0].includes("/light7")){
+  if(msg[0].includes("/kelvin")){
+    //Fixture 7
+    lifx.color.light(fixture7.id, {
+      kelvin: `${arg1}`
+    }); 
+  } else if(Number.isInteger(msg[2])){
     //Fixture 7
      lifx.color.light(fixture7.id, {
       rgb: `${arg1},${arg2},${arg3}`
-    });  
+    }); 
   } else if(msg[1] === 'red'){
     red(fixture7);
   } else if(msg[1] === 'green'){
@@ -365,12 +400,17 @@ else if (msg[0] === "/light7"){
   }
 } 
 
-else if (msg[0] === "/light8"){
-  if(Number.isInteger(msg[1])){
+else if (msg[0].includes("/light8")){
+  if(msg[0].includes("/kelvin")){
+    //Fixture 8
+    lifx.color.light(fixture8.id, {
+      kelvin: `${arg1}`
+    }); 
+  } else if(Number.isInteger(msg[2])){
     //Fixture 8
      lifx.color.light(fixture8.id, {
       rgb: `${arg1},${arg2},${arg3}`
-    });  
+    }); 
   } else if(msg[1] === 'red'){
     red(fixture8);
   } else if(msg[1] === 'green'){
@@ -394,9 +434,14 @@ else if (msg[0] === "/light8"){
   }
 } 
 
-else if (msg[0] === "/lightsall"){  
-
-    if(msg[1] === 'on'){
+else if (msg[0].includes("/lightsall")){ 
+    if(msg[0].includes("/kelvin")){
+      //Fixture 7
+      lifx.color.group(fixture1.group.id, {
+        kelvin: `${arg1}`
+      })
+    }
+    else if (msg[1] === 'on'){
       // turn the light on
       lifx.power.group(fixture1.group.id, 'on');
       console.log("All Lights On")
@@ -406,7 +451,7 @@ else if (msg[0] === "/lightsall"){
     lifx.power.group(fixture1.group.id, 'off');
     console.log("All Lights Off")
     }
-    else if (Number.isInteger(msg[1])){
+    else if (Number.isInteger(msg[2])){
     lifx.color.group(fixture1.group.id, {
     rgb: `${arg1},${arg2},${arg3}`
     });

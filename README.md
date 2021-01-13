@@ -133,7 +133,9 @@ Kelvin temperature range on this LIFX bulb is: **1500K-9000K**
 
 #
 
-For Questions, Bugs, or Feature Requests
 
+Join the Discord server to chat: 
 
-Send me an email: joe.daniel.shea@gmail.com
+<a href="https://discord.gg/FJ79AKPgSk">
+        <img src="https://img.shields.io/discord/308323056592486420?logo=discord"
+            alt="chat on Discord"></a>
